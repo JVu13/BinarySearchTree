@@ -15,6 +15,32 @@ Node* createNode(int data) {
     return newNode;
 }
 
+void printTree(Node* root) {
+
+    if (root == nullptr) return;
+     
+    cout << root->data << endl;
+    printTree(root->left);
+    printTree(root->right);
+}
+
+void printTreeI(Node*root) {
+    if (root == nullptr) return;
+
+    printTreeI(root->left);
+    cout << root->data << endl;
+    printTreeI(root->right);
+}
+
+void printTreeP(Node*root) {
+    if (root == nullptr) return;
+
+    printTreeI(root->left);
+    printTreeI(root->right);
+    cout << root->data << endl;
+}
+
+
 int main () {
     // Level 1
     Node* root=createNode(1);
@@ -31,4 +57,10 @@ int main () {
     //Level 4
     root->left->right->left = createNode(9);
     root->right->right->left = createNode(15);
+
+    // printTree(root);
+
+    // printTreeI(root);
+
+    // printTreeP(root);
 }
